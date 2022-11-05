@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/tailwind.css" />
+    <script type="module" src="/js/main.js" defer></script>
+    <title>Ziegenhof Schleckweda</title>
+  </head>
+  <body class="bg-slate-400">
+    <!-- foreground -->
+    <div class="max-w-[1120px] bg-white mx-auto">
+      <!-- frame around header and main -->
+      <div class="p-5">
+        <header>
+          <nav>
+            <!-- row-1 -->
+            <div class="flex place-content-between mb-5">
+              <!-- logo -->
+              <div>
+                <img
+                  src="https://images.placeholders.dev/?width=370&height=120&text=Logo"
+                  alt="Ein Symbol, dass eine Ziege zeigt, umgeben von dem Schriftzug Ziegenhof Schleckweda."
+                />
+              </div>
+              <!-- menu-secondary -->
+              <div class="space-x-5">
+                <a href="#">M1</a><a href="#">M2</a><a href="#">M3</a
+                ><a href="#">M4</a><a href="#">M5</a><a href="#">M6</a
+                ><a href="#">M7</a>
+              </div>
+            </div>
+            <!-- row-2 -->
+            <div>
+              <!-- menu-primary -->
+              <div class="flex relative justify-center space-x-10">
+                <!-- Menü 1 -->
+                <div class="relative">
+                  <div
+                    x-data="{
+                        open: false,
+                        toggle() {
+                            if (this.open) {
+                                return this.close()
+                            }
+             
+                            this.$refs.button.focus()
+             
+                            this.open = true
+                        },
+                        close(focusAfter) {
+                            if (! this.open) return
+             
+                            this.open = false
+             
+                            focusAfter && focusAfter.focus()
+                        }
+                    }"
+                    x-on:keydown.escape.prevent.stop="close($refs.button)"
+                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                    x-id="['dropdown-button']"
+                  >
+                    <!-- Button -->
+                    <button
+                      x-ref="button"
+                      @click="toggle()"
+                      type="button"
+                      class="flex items-center"
+                    >
+                      Menü 1
+                    </button>
+
+                    <!-- Panel -->
+                    <div
+                      x-ref="panel"
+                      x-show="open"
+                      x-transition.origin.top.left
+                      x-on:click.outside="close($refs.button)"
+                      :id="$id('dropdown-button')"
+                      style="display: none"
+                      class="absolute left-0 mt-2 w-40 bg-white rounded-md shadow-md"
+                    >
+                      <a
+                        href="#"
+                        class="flex gap-2 items-center px-4 py-2.5 w-full text-sm text-left first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-gray-50 disabled:text-gray-500"
+                      >
+                        Eintrag 1
+                      </a>
+
+                      <a
+                        href="#"
+                        class="flex gap-2 items-center px-4 py-2.5 w-full text-sm text-left first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-gray-50 disabled:text-gray-500"
+                      >
+                        Eintrag 2
+                      </a>
+
+                      <a
+                        href="#"
+                        class="flex gap-2 items-center px-4 py-2.5 w-full text-sm text-left first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-gray-50 disabled:text-gray-500"
+                      >
+                        Eintrag 3
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" class="flex items-center">Menü 2</button>
+                <button type="button" class="flex items-center">Menü 3</button>
+                <button type="button" class="flex items-center">Menü 4</button>
+                <button type="button" class="flex items-center">Menü 5</button>
+                <button type="button" class="flex items-center">Menü 6</button>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <main class="mb-10">
+          <!-- hero-image -->
+          <div
+            class="flex overflow-scroll mb-5 space-x-4 snap-x snap-mandatory"
+          >
+            <div class="flex flex-shrink-0 snap-center">
+              <img
+                src="https://images.placeholders.dev/?width=1080&height=500&text=Hero%20Image%201"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-shrink-0 snap-center">
+              <img
+                src="https://images.placeholders.dev/?width=1080&height=500&text=Hero%20Image%202"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-shrink-0 snap-center">
+              <img
+                src="https://images.placeholders.dev/?width=1080&height=500&text=Hero%20Image%203"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- content -->
+          <div class="flex">
+            <!-- column-left -->
+            <div class="w-1/3">
+              <ul>
+                <h1>Termine</h1>
+                <li>
+                  01.01. - 31.12.2099
+                  <h2>Titel 1</h2>
+                  <p>Thema</p>
+                </li>
+                <li>
+                  01.01. - 31.12.2099
+                  <h2>Titel 2</h2>
+                  <p>Thema 2</p>
+                </li>
+                <li>
+                  01.01. - 31.12.2099
+                  <h2>Titel 3</h2>
+                  <p>Thema 3</p>
+                </li>
+              </ul>
+            </div>
+            <!-- column-right -->
+            <div class="w-2/3">
+              <article>
+                <h1>Überschrift</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Cupiditate distinctio hic rerum ipsum vel corrupti, animi
+                  asperiores saepe, in similique voluptatibus exercitationem!
+                  Eaque sit odit enim dolor earum ullam aliquam.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam, incidunt mollitia culpa maiores eligendi dolore?
+                  Sapiente, iusto nam, laudantium corporis molestiae numquam, at
+                  aspernatur beatae a vero consectetur ab tempora?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam, incidunt mollitia culpa maiores eligendi dolore?
+                  Sapiente, iusto nam, laudantium corporis molestiae numquam, at
+                  aspernatur beatae a vero consectetur ab tempora?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quibusdam, incidunt mollitia culpa maiores eligendi dolore?
+                  Sapiente, iusto nam, laudantium corporis molestiae numquam, at
+                  aspernatur beatae a vero consectetur ab tempora?
+                </p>
+                <p>
+                  <strong>
+                    Wenn Sie sich angesprochen fühlen, nehmen Sie Kontakt zu uns
+                    auf. Wir freuen uns!
+                  </strong>
+                </p>
+                <!-- photos -->
+                <div class="flex justify-between mt-10">
+                  <img
+                    src="https://images.placeholders.dev/?width=345&height=225&text=Foto%201"
+                    alt=""
+                  />
+                  <img
+                    src="https://images.placeholders.dev/?width=345&height=225&text=Foto%202"
+                    alt=""
+                  />
+                </div>
+              </article>
+            </div>
+          </div>
+        </main>
+      </div>
+      <footer class="p-5 text-white bg-gray-800">
+        <ul class="flex justify-between">
+          <div class="flex flex-col">
+            <li><a href="#">Seminarhaus</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+          <div class="flex flex-col">
+            <li><a href="#">Gästehaus</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+          <div class="flex flex-col">
+            <li><a href="#">Kreativ-Ort</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+          <div class="flex flex-col">
+            <li><a href="#">Termine</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+          <div class="flex flex-col">
+            <li><a href="#">Über uns</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+          <div class="flex flex-col">
+            <li><a href="#">Wissenswertes</a></li>
+            <li>Eintrag 1</li>
+            <li>Eintrag 2</li>
+            <li>Eintrag 3</li>
+            <li>Eintrag 4</li>
+          </div>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
